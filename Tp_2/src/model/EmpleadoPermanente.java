@@ -2,6 +2,7 @@ package model;
 
 import java.time.LocalDate;
 
+
 public class EmpleadoPermanente extends Empleado {
 	
 	private int cantHijos;
