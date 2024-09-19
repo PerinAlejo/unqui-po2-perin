@@ -7,23 +7,21 @@ import org.junit.jupiter.api.Test;
 
 class FacturaTest {
 
-	Impuesto impuesto;
-	Servicio servicio;
-	Caja caja;
-	Agencia agencia;
-	
-	
-	@BeforeEach
-	void setUp() throws Exception {
-		impuesto = new Impuesto(10d);
-		servicio = new Servicio(10d, 5);
-		caja = new Caja();
-		
-	}
+    @Test
+    void testCobrarFacturaServicio() {
+        Factura f1 = new Servicio(10, 5);  // 10 por unidad, 5 unidades consumidas
+        Caja caja = new Caja();
+        caja.registrarPago(f1);
 
-	@Test
-	void test() {
-		fail("Not yet implemented");
-	}
+        assertEquals(50, caja.getTotal());
+    }
 
+    @Test
+    void testCobrarFacturaImpuesto() {
+        Factura f2 = new Impuesto(100);  // TasaDeServicio 100
+        Caja caja = new Caja();
+        caja.registrarPago(f2);
+
+        assertEquals(100, caja.getTotal());
+    }
 }

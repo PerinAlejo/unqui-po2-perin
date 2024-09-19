@@ -1,17 +1,19 @@
 package ar.edu.unq.po2.tp5;
 
-public class Servicio implements Factura{
+public class Servicio extends Factura{
 	
-	private double costoUnidad; 
-	private int unidadesConsumidas;
-	
-	public Servicio(double costoUnidad, int unidadesConsumidas) {
-		this.costoUnidad = costoUnidad;
-		this.unidadesConsumidas = unidadesConsumidas;
-	}
-	
-	public double montoPagar() {
-		return this.costoUnidad * this.unidadesConsumidas;
-	}
-	
+	private double costoPorUnidad;
+    private int cantidadConsumida;
+
+    public Servicio(double costoPorUnidad, int cantidadConsumida) {
+        super(0);
+        this.costoPorUnidad = costoPorUnidad;
+        this.cantidadConsumida = cantidadConsumida;
+    }
+
+    @Override
+    public double calcularMonto() {
+        this.monto = costoPorUnidad * cantidadConsumida;
+        return this.monto;
+    }
 }

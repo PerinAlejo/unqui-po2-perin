@@ -12,10 +12,8 @@ class ProductoTest {
 
 	Producto banana;
 	Producto leche;
-	Producto frutilla;
 	Producto aceite;
-	
-	List<Producto> compras;
+
 	Caja caja;
 	
 	@BeforeEach
@@ -23,21 +21,14 @@ class ProductoTest {
 		
 		banana = new Producto("banana", 10d, 2);
 		leche = new ProductoCooperativa("leche", 10d, 1);
-		frutilla = new Producto("frutilla", 10d, 2);
 		aceite = new Producto("aceite", 10d, 2);
 		caja = new Caja();
-		
-		compras = new ArrayList<>();
-		compras.add(aceite);
-		compras.add(leche);
-		compras.add(banana);
-		compras.add(frutilla);
 	}
-
+	
 	@Test
 	void productos() {
 		assertEquals(2, banana.getStock());
-		banana.decrementarStock();
+		banana.decrementarStock(1);
 		assertEquals(1, banana.getStock());
 		assertEquals(new Double(10), banana.getPrecio());
 		assertEquals(new Double(9), leche.getPrecio());
@@ -45,11 +36,14 @@ class ProductoTest {
 	
 	@Test
 	void caja() {
-		assertEquals(new Double(39) , caja.registrarProductos(compras));
+		caja.agregarProducto(aceite, 2);
+		caja.agregarProducto(banana, 1);
+		caja.agregarProducto(leche, 1);
+		
+		assertEquals(new Double(39) , caja.getTotal());
 		assertEquals(1, banana.getStock());
 		assertEquals(0, leche.getStock());
-		assertEquals(1, frutilla.getStock());
-		assertEquals(1, aceite.getStock());
+		assertEquals(0, aceite.getStock());
 	}
 
 }

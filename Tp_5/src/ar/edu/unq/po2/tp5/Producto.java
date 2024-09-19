@@ -13,8 +13,16 @@ public class Producto {
 		this.stock = stock;
 	}
 	
-	public void decrementarStock() {
-		this.stock--;
+	public void decrementarStock(int cantidad) {
+        if (stock >= cantidad) {
+            stock -= cantidad;
+        } else {
+            System.out.println("Stock insuficiente.");
+        }
+    }
+	
+	public String getNombre() {
+		return this.nombre;
 	}
 	
 	public double getPrecio() {

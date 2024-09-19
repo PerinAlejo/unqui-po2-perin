@@ -1,28 +1,36 @@
 package ar.edu.unq.po2.tp5;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class Caja {
+public class Caja implements Agencia{
 	
-	private Agencia agencia;
-	
-	public Caja(Agencia agencia) {
-		this.agencia = agencia;
-	}
-	
-	public double registrarProductos(List<Producto> productos) {
-		double total = 0;
-		for (Producto producto : productos) {
-			producto.decrementarStock();
-			total += producto.getPrecio();
-		}
-		return total;
-	}
-	
-	public void pagarFactura(Factura factura) {
-		agencia.registrarPago(factura);
-	}
-	
-}
+	 private ArrayList<Producto> productos;
+	    private double total;
 
+	    public Caja() {
+	        productos = new ArrayList<>();
+	        total = 0.0;
+	    }
+
+	    public void agregarProducto(Producto p, int cantidad) {
+	        if (p.getStock() >= cantidad) {
+	            p.decrementarStock(cantidad);
+	            total += p.getPrecio() * cantidad;
+	            productos.add(p);
+	        } else {
+	            System.out.println("No hay suficiente stock para " + p.getNombre());
+	        }
+	    }
+
+	    public double getTotal() {
+	        return total;
+	    }
+	    
+	    @Override
+	    public void registrarPago(Factura factura) {
+	        double montoFactura = factura.calcularMonto();
+	        total += montoFactura;
+	    }
+	}
 
