@@ -4,6 +4,5 @@
 /**
  * 
  */
-module Tp_2 {
-	requires org.junit.jupiter.api;
+module Tp_5 {
 }
