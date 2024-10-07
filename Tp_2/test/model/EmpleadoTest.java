@@ -1,10 +1,11 @@
 package model;
 
-import java.time.LocalDate;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.assertEquals;
 
+import java.time.LocalDate;
+
+import org.junit.Test;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 
 class EmpleadoTest {
 
