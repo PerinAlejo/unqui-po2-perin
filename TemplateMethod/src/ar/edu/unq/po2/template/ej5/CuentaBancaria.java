@@ -31,6 +31,13 @@ public abstract class CuentaBancaria {
 		 this.movimientos.add(movimiento);
 	}
 		 
-	public abstract void extraer(int monto);
+	public void extraer(int monto) {
+		 if(this.puedeExtraer(monto)){
+			 	this.setSaldo(this.getSaldo()-monto);
+			 	this.agregarMovimientos("Extraccion");
+		 }
+	}
+	
+	public abstract boolean puedeExtraer(int monto);
 
 }
