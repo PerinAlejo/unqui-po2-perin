@@ -1,10 +1,12 @@
 package ar.edu.unq.po2.mockito;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.*;
+
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import ar.edu.unq.po2.mockito.ej2.PokerStatus;
 
 class PokerStatusTest {
 

@@ -1,4 +1,4 @@
-package ar.edu.unq.po2.mockito;
+package ar.edu.unq.po2.mockito.ej2;
 
 import java.util.HashMap;
 import java.util.Map;
