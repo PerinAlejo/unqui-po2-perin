@@ -21,9 +21,9 @@ class PokerStatusTest {
 		mano = new PokerStatus(); 
 		
 		manoConPoker = mano.verificar("QD","QP","QC", "QT", "5D");
-		manoConTrio = mano.verificar("QD","QP","QC", "QT", "5D");
-		manoConColor = mano.verificar("QD","QP","QC", "QT", "5D");
-		manoConNada = mano.verificar("QD","QP","QC", "QT", "5D");
+		manoConTrio = mano.verificar("QD","QP","QC", "6T", "5D");
+		manoConColor = mano.verificar("QD","4D","KD", "10D", "5D");
+		manoConNada = mano.verificar("10D","10P","1C", "1T", "5D");
 	
 	}
 
